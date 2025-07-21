@@ -1,4 +1,5 @@
 // import React from "react";
+import { Suspense } from "react";
 import Header from "./Header";
 import CartOverview from "../features/cart/CartOverview";
 import Loader from "./Loader";
@@ -16,7 +17,9 @@ function AppLayout() {
             <Header />
             <main>
                 <h1>pizza content</h1>
-                <Outlet />
+                <Suspense fallback={<Loader />}>
+                    <Outlet />
+                </Suspense>
             </main>
             <CartOverview />
         </div>
