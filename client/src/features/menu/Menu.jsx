@@ -6,7 +6,7 @@ function Menu() {
     // custom hook
     // data from loader as menuLoader
     const menu = useLoaderData();
-    console.log(menu);
+    // console.log(menu);
     return (
         <ul>
             {menu.map((pizza) => (
