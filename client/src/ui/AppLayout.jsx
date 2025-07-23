@@ -11,16 +11,19 @@ function AppLayout() {
     const isLoading = navigation.state === "loading";
 
     return (
-        <div className="layout">
+        <div className="font-roboto-mono grid h-screen grid-rows-[auto_1fr_auto]">
             {isLoading && <Loader />}
+            {/* {true && <Loader />} */}
 
             <Header />
-            <main>
-                <h1>pizza content</h1>
-                <Suspense fallback={<Loader />}>
-                    <Outlet />
-                </Suspense>
-            </main>
+            <div className="overflow-scroll">
+                <main className="max-w-3xl mx-auto">
+                    {/* <h1>pizza content</h1> */}
+                    <Suspense fallback={<Loader />}>
+                        <Outlet />
+                    </Suspense>
+                </main>
+            </div>
             <CartOverview />
         </div>
     );
