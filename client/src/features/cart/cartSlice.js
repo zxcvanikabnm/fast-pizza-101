@@ -1,4 +1,4 @@
-import { createSlice } from "react-redux";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   //   cart: [],
@@ -13,7 +13,7 @@ const initialState = {
   ],
 };
 
-const CartSlice = createSlice({
+const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
