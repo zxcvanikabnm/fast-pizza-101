@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import menuRoutes from "./routes/menu.js";
+import orderRoutes from "./routes/order.js";
 
 dotenv.config(); // Load .env
 
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/menu", menuRoutes);
+app.use("/order", orderRoutes);
 
 mongoose
     .connect(process.env.MONGO_URI)

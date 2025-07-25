@@ -17,6 +17,7 @@ dist-ssr
 
 # scripts folder
 scripts/seedMenu.js
+scripts/seedOrder.js
 
 # Editor directories and files
 .vscode/*
