@@ -15,30 +15,6 @@ const isValidPhone = (str) =>
     str,
   );
 
-// const fakeCart = [
-//   {
-//     pizzaId: 12,
-//     name: "Mediterranean",
-//     quantity: 2,
-//     unitPrice: 16,
-//     totalPrice: 32,
-//   },
-//   {
-//     pizzaId: 6,
-//     name: "Vegetale",
-//     quantity: 1,
-//     unitPrice: 13,
-//     totalPrice: 13,
-//   },
-//   {
-//     pizzaId: 11,
-//     name: "Spinach and Mushroom",
-//     quantity: 1,
-//     unitPrice: 15,
-//     totalPrice: 15,
-//   },
-// ];
-
 function CreateOrder() {
   const {
     username,
@@ -55,7 +31,6 @@ function CreateOrder() {
   const dispatch = useDispatch();
 
   const [withPriority, setWithPriority] = useState(false);
-  // const cart = fakeCart;
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
   const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
@@ -92,7 +67,6 @@ function CreateOrder() {
               </p>
             )}
           </div>
-          {/* {formErrors?.phone && <p className="text-xs mt-2 text-red-700 bg-red-100 p-2 rounded-md text-center">{formErrors.phone}</p>} */}
         </div>
 
         <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -155,12 +129,6 @@ function CreateOrder() {
                 : ""
             }
           />
-          {/* <button
-            disabled={isSubmitting}
-            className="inline-block rounded-full bg-yellow-400 px-4 py-3 font-semibold tracking-wide text-stone-800 uppercase transition-colors duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:ring focus:ring-yellow-300 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? "Placing order..." : "Order now"}
-          </button> */}
           <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
               ? "Placing order..."
@@ -174,17 +142,13 @@ function CreateOrder() {
 
 export async function action({ request }) {
   const formData = await request.formData();
-  console.log("FormData: ", formData);
   const data = Object.fromEntries(formData);
-  console.log("Data: ", data);
-
+  
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
     priority: data.priority === "true",
   };
-
-  console.log("Order: ", order);
 
   const errors = {};
   if (!isValidPhone(order.phone)) {
@@ -200,8 +164,6 @@ export async function action({ request }) {
   store.dispatch(clearCart());
 
   return redirect(`/order/${newOrder.id}`);
-
-  // return null; ///for testing
 }
 
 export default CreateOrder;
