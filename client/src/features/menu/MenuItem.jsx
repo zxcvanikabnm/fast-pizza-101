@@ -15,7 +15,6 @@ function MenuItem({ pizza }) {
   const isInCart = currentQuantity > 0;
 
   function handleAddToCart() {
-    // console.log(id);
     const newItem = {
       pizzaId: id,
       name,
