@@ -63,7 +63,7 @@ function Order() {
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
     id,
-    status,
+    // status,
     priority,
     priorityPrice,
     orderPrice,
@@ -71,6 +71,18 @@ function Order() {
     cart,
   } = order;
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
+
+  const now = new Date();
+  const est = new Date(estimatedDelivery);
+
+  let status = "preparing";
+    if (now >= est) {
+        status = "delivered";
+    } else {
+        const minutesLeft = calcMinutesLeft(estimatedDelivery);
+        if (priority && minutesLeft <= 15) status = "out for delivery";
+        if (!priority && minutesLeft <= 35) status = "out for delivery";
+    }
 
   return (
     <div className="space-y-8 px-4 py-6">
@@ -108,7 +120,8 @@ function Order() {
             key={item.pizzaId}
             isLoadingIngredients={fetcher.state === "loading"}
             ingredients={
-              fetcher?.data?.find((el) => el.id === item.pizzaId)?.ingredients ?? []
+              fetcher?.data?.find((el) => el.id === item.pizzaId)
+                ?.ingredients ?? []
             }
           />
         ))}
