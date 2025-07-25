@@ -1,4 +1,3 @@
-// import React from "react";
 import { Link } from "react-router-dom";
 import SearchOrder from "../features/order/SearchOrder";
 import Username from "../features/user/Username";
@@ -9,11 +8,8 @@ function Header() {
       <Link to="/" className="tracking-widest">
         Fast Pizza 101 Co.
       </Link>
-
       <SearchOrder />
       <Username />
-
-      {/* <p>we only serve delicious pizza</p> */}
     </header>
   );
 }
