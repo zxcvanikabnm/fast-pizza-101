@@ -47,8 +47,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  //   const [count, setCount] = useState(0)
-
   return (
     <>
         <Suspense fallback={<div>Loading order...</div>}>
