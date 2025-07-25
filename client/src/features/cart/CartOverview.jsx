@@ -14,7 +14,6 @@ function CartOverview() {
           <span>{totalCartQuantity} pizzas</span>
           <span>{formatCurrency(totalCartPrice)}</span>
         </p>
-        {/* <a href="#">Open cart &rarr;</a> */}
         <Link to="/cart">Open cart &rarr;</Link>
       </div>
     );
