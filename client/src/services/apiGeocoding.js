@@ -1,9 +1,19 @@
-export async function getAddress({ latitude, longitude }) {
-  const res = await fetch(
-    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`
-  );
-  if (!res.ok) throw Error("Failed getting address");
+import axios from "axios";
 
-  const data = await res.json();
-  return data;
+const GEOCODE_API = import.meta.env.VITE_GEOCODE_API;
+
+export async function getAddress({ latitude, longitude }) {
+  try {
+    const res = await axios.get(GEOCODE_API, {
+      params: {
+        latitude,
+        longitude,
+      },
+    });
+
+    return res.data;
+  } catch (err) {
+    throw Error("Failed getting address");
+  }
 }
+
