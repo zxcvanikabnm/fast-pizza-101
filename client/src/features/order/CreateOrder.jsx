@@ -56,7 +56,7 @@ function CreateOrder() {
         </div>
 
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="place-self-start pt-0 sm:basis-40 sm:pt-1.5 md:pt-5">
+          <label className="place-self-start pt-0 sm:basis-40 sm:pt-1.5">
             Phone number
           </label>
           <div className="grow">
@@ -70,7 +70,7 @@ function CreateOrder() {
         </div>
 
         <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="place-self-start pt-0 sm:basis-40 sm:pt-1.5 md:pt-5">
+          <label className="place-self-start pt-0 sm:basis-40 sm:pt-1.5">
             Address
           </label>
           <div className="grow">
@@ -89,7 +89,7 @@ function CreateOrder() {
             )}
           </div>
           {!position.latitude && !position.longitude && (
-            <span className="absolute top-[33px] right-[1px] z-50 sm:top-[1px] sm:right-[1px] md:top-[4px]">
+            <span className="absolute top-[33px] right-[1px] z-50 sm:top-[1px] sm:right-[1px]">
               <Button
                 type="small"
                 disabled={isLoadingAddress}
