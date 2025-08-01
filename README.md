@@ -20,6 +20,7 @@ Live Demo: https://anikacustod.io/fast-pizza-101/
 - 📘 Mongoose
 - 🗃️ MongoDB (Atlas)
 - 🔐 dotenv
+- 🧪 **Testing**: Postman for API testing
 
 ### Deployment
 - 💻 DigitalOcean Droplet (Ubuntu)
